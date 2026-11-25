@@ -1,0 +1,31 @@
+
+This section shall describe how the numerical results were obtained.
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+We employ a minimization program at a spherical wall with radius Rb which provides us with the corresponding equilibrium density profile for
+given parameter A and B where the test particle case, i.e. Rb = R, is employed. 
+Herewith, we can obtain numercially the excess chemical potential mu_ex and the isothermal compressibility xT.
+
+
+Therefore, the following steps constitute the numerical calculation:
+
+    1. Minimize the grand canonical functional Omega[rho] at a spherical wall in the test-particle case using the Picard-Iteration scheme
+    rho^i = (1-alpha)*rho^(i-1) + alpha*rhoTilde, where alpha is a mixing parameter and rhoTilde = ... . Stop the iteration if the solution has sufficiently 
+    converged.
+    2. Obtain the desired thermodynamic quantities using Eq.(...) and Eq.(...).
+    3. Repeat these steps for As and Bs in a certain range and collect the relative deviations delta_mu and delta_x for further analysis regarding the optimal
+    point.
+
+
+
+We know from Rosenfeld's functional that the sum rules for the excess chemical potential and isothermal compressibility are well fulfilled for low densities.
+Since we also know that deviations to Rosenfeld due to A and B start to become severe for higher densities we can restrict the optimization only for these high densities. Thus, optimization procedure is done in two steps:
+
+    1. Calculate the average value for a point (A, B)
+        Formula
+
+    2. Find the minimum
+        Formlula
+
+       from which we obtain the optimal point.

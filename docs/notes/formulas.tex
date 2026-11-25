@@ -1,0 +1,111 @@
+
+
+
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{empheq}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2cm]{geometry}
+\title{Formulas Project Lutsko-Functional}
+\author{Melih G\"ul  \\
+	Institut f\"ur Theoretische Physik \\
+	Eberhard-Karls-Universit\"at-T\"ubingen  \\
+	}
+
+\date{\today}
+% Hint: \title{what ever}, \author{who care} and \date{when ever} could stand 
+% before or after the \begin{document} command 
+% BUT she \maketitle command MUST come AFTER the \begin{document} command! 
+\begin{document}
+
+\maketitle
+
+
+\section{Rosenfeld-Functional}
+
+In the framework of classical Density Functional Theory (cDFT) the excess free energy Functional ${\cal F}_{ex}$ for a $\nu$-component mixture is written as
+\begin{equation}
+	{\cal F}_{ex}[\rho_i] = \int d\mathbf{r}\,\Phi_{ex}(\{n_\alpha\}),
+\end{equation}
+where $\Phi_{ex}(\{n_\alpha\})$ denotes the excess free energy density as a function of weighted densities
+\begin{equation}
+	n_\alpha(\mathbf{r}) \equiv \sum_{i=1}^\nu\int d\mathbf{r}'\,\rho_i(\mathbf{r})\,\omega^i_\alpha(\mathbf{r}-\mathbf{r}'),
+\end{equation} 
+which are convolutions of the local density $\rho_i(\mathbf{r})$ and the weight functions $\omega^i_\alpha(\mathbf{r}-\mathbf{r}')$ of species $i$ given in FMT.\\
+Employing thermodynamic relations and scaled particle theory (SPT) one can derive a differential equation for $\Phi_{ex}$. It reads
+\begin{equation}\label{DiffPhi}
+	\frac{\partial\Phi_{ex}}{\partial n_3} = n_0-\Phi_{ex}+\sum_\alpha\frac{\partial\Phi_{ex}}{\partial n_\alpha}n_\alpha,
+\end{equation}
+where the left-hand side of the equation is related to the bulk-pressure $\beta p$ of the system.
+For the 1D hard-sphere system, Eq.\eqref{DiffPhi} yields the exact solution 
+\begin{equation}
+	\Phi_{ex}^{(1D)} = -n_0\log(1-n_1).
+\end{equation}
+For higher dimensions however, only solutions with the right low-density limit are known.\\ 
+The Rosenfeld-Functional as a solution of Eq.\eqref{DiffPhi} in the 3D case is given by the excess free energy density 
+\begin{equation}
+	\Phi^{\text{RF}}_{ex}(\{n_\alpha\}) = \Phi_{ex}^{(1)}+\Phi_{ex}^{(2)}+\Phi_{ex}^{(3)},
+\end{equation}
+where
+\begin{align}\label{Rosenfeld}
+	\Phi_{ex}^{(1)} &= -n_0\log(1-n_3),\quad
+	\Phi_{ex}^{(2)} = \frac{n_1 n_2-\mathbf{n}_1 \mathbf{n}_2}{1-n_3},\quad
+	\Phi_{ex}^{(3)} = \frac{n_2^3 - 3n_2\mathbf{n}_2^2}{24\pi (1-n_3)^2}.
+\end{align}
+Further improvements with respect to the functional were achieved by using different equation of states (EOS) as an input of Eq.\eqref{DiffPhi}. Taking the Carnahan-Starling EOS for instance leads to the White-Bear solution where
+\begin{equation}
+	\Phi_{ex}^{\text{WB},(3)}(\{n_\alpha\}) = \frac{n_3+(1-n_3)^2\log(1-n_3)}{36\pi n_3^2(1-n_3)^2}(n_2^3 - 3n_2\mathbf{n}_2^2)
+\end{equation}
+and the other parts remaining unchanged. A Mark-II version of the WB-functional could be found using a generalized version of the CS-EOS for hard-sphere mixtures.
+
+\section{Lutsko-Functional}
+
+Lutsko presented a formalism based on dimensional crossover that is capable of reproducing the correct low-dimensional version given a functional in higher dimension.\\
+He could show that $\Phi_{ex}$ takes the following form
+\begin{equation}
+	\Phi_{ex}^{\text{L}}(\{n_\alpha\}) = \Phi_{ex}^{(1)}(\{n_\alpha\})+\Phi_{ex}^{(2)}(\{n_\alpha\})+\Phi_{ex}^{(3)}(\{n_\alpha\};A,B),
+\end{equation}
+where $\Phi_{ex}^{(1)}(\{n_\alpha\})$ and $\Phi_{ex}^{(2)}(\{n_\alpha\})$ equal those of Eq.\eqref{Rosenfeld}. $\Phi_{ex}^{(3)}(\{n_\alpha\};A,B)$ now includes two free parameters $A$ and $B$
+\begin{equation}
+	\Phi_{ex}^{(3)}(\{n_\alpha\};A,B) = \frac{(A+B)n_2^3-3An_2\mathbf{n}_2^2+3A\mathbf{n}_2\mathbf{T}\mathbf{n}_2-3Bn_2\text{Tr}\,\mathbf{T}^2+(2B-A)\text{Tr}\,\mathbf{T}^3}{24\pi(1-n_3)^2}.
+\end{equation}
+Apparently, this functional's performance depends on the choice being made for $A$ and $B$. Imposing certain conditions could fix their value. 
+
+\section{Sum Rules}
+
+The conditions we employ make use of the sum rules with respect to excess chemical potential $\mu_{ex}$ and isothermal compressibility $\chi_T$. Both can be obtained in two ways and by minimizing the difference, i.e. looking for the best agreement between these two approaches, will fix these parameters.\\
+$\mu_{ex}$ can be calculated first by evaluating the grand potential $\Omega$ which is obtained from a minimization program and second from SPT. $\chi_T$ is obtained on the one hand by making use of the thermodynamic derivation and on the other hand calculating the structure factor $S(0)$.\\
+Hence, demanding consistency provides two constraints on two free parameters.
+It is also possible to investigate the direct correlation function and try to optimize in this way.\\   
+In total, we have
+\begin{itemize}
+	\item Thermodynamics\\
+		
+		\begin{equation}
+			\beta\mu_{ex} = v\frac{\partial f_{ex}}{\partial\eta},\quad \chi_T = \frac{1}{\eta}\left(\frac{\partial\beta\mu}{\partial\eta}\right)_{T,V}^{-1}.
+		\end{equation}
+		
+	\item DFT\\
+	
+		\begin{equation}
+			\beta\mu_{ex} = \beta pv + \beta\gamma A,\quad \chi_T = 1 + 4\pi\rho\int_0^{\infty}dr\,r^2h(r).
+		\end{equation}
+\end{itemize}
+Here, $v$ is the particle volume, $\rho$ the bulk density and $\eta = \rho v$ the packing fraction. The pair direct correlation function $h(r)$ can be easily obtained from the density profile $\rho(r)$ being derived from a minimization program. We also assumed spherical symmetry.
+
+\section{Direct Correlation Function (DCF)}
+
+In FMT, the DCF is defined as
+\begin{equation}
+	c^{(2)}(\mathbf{r}-\mathbf{r}') \equiv -\frac{\delta^2\beta{\cal F}_{ex}[\rho]}{\delta\rho(\mathbf{r})\delta\rho(\mathbf{r}')}\Bigg|_{\rho(\mathbf{r})=\rho_b,\,\rho(\mathbf{r}')=\rho_b},
+\end{equation}
+which after applying the chain rule becomes
+\begin{equation}
+	c^{(2)}(\mathbf{r}-\mathbf{r}') = -\sum_{\alpha,\beta}\frac{\partial^2\Phi_{ex}}{\partial n_\alpha\partial n_\beta}\,\omega_\alpha\otimes\omega_\beta(\mathbf{r}-\mathbf{r}'),
+\end{equation}
+where $\omega_\alpha\otimes\omega_\beta$ denotes
+\begin{equation}
+	\omega_\alpha\otimes\omega_\beta(\mathbf{r}-\mathbf{r}')= \int d\mathbf{r}''\,\omega_\alpha(\mathbf{r}-\mathbf{r}'')\omega_\beta(\mathbf{r}'-\mathbf{r}'').
+\end{equation}
+
+
+\end{document}

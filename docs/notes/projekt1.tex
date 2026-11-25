@@ -1,0 +1,705 @@
+
+
+
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage{empheq}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2cm]{geometry}
+\title{Lutsko-Functional and its optimization}
+\author{Melih G\"ul  \\
+	Institut f\"ur Theoretische Physik \\
+	Eberhard-Karls-Universit\"at-T\"ubingen  \\
+	}
+
+\date{\today}
+% Hint: \title{what ever}, \author{who care} and \date{when ever} could stand 
+% before or after the \begin{document} command 
+% BUT she \maketitle command MUST come AFTER the \begin{document} command! 
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+In this paper we investigate the functional for hard spheres in three dimensions proposed by Lutsko which was derived in the framework of dimensional crossover for classical density functional theory. Although it is possible to retain Rosenfeld's functional in three dimensions higher contributions generating the tensorial terms stay undetermined due to coefficients $A$ and $B$ that cannot be fixed. Using the sum rules for excess chemical potential $\beta\mu_{ex}$ and isothermal susceptibility $\chi_T$ we seek for an optimal point in the $(A, B)$-plane that fulfills both sum rules with high accuracy. To corroborate our results we checked our underlying computations taking into account the theorems of contact density $\rho_c$ and adsorption $\Gamma$ in a spherical geometry.
+\end{abstract}
+\section{Lutsko's Functional}
+
+The formalism for hard-sphere systems in which exact lower-dimensional results are reproduced from higher dimensional ones is termed by Rosenfeld and collaborators as "dimensional crossover". Besides the one-dimensional hard-sphere system so-called 0D-systems containing at most one single hard sphere of radius $R$. A simple example is to consider a cavity of radius $R(1+\epsilon)$ with $\epsilon\rightarrow 0$ corresponding to a point. Then, the density takes the form
+\begin{equation}
+	\rho(\vec{r}) = N\delta(\vec{r}),
+\end{equation}
+where $N\in[0,1]$ being determined by the chemical potential. One can work out the excess free energy with its functional form given by
+\begin{equation}
+	{\cal F}_{ex}[\rho] = \Phi_0[N[\rho]],
+\end{equation}
+with
+\begin{equation}
+	\Phi_0(x) = (1-x)\log(1-x)-(1-x)
+\end{equation}
+and
+\begin{equation}
+	N[\rho] = \int\rho(\vec{r})\,d\vec{r}.
+\end{equation}
+By extending to two or more cavities there arises the possibility of pairwise overlapping between the cavities. Take two cavities with centers $\vec{s}_i$ which shall overlap. The density becomes
+\begin{equation}
+	\rho_2(\vec{r}) = N_1\delta(\vec{r}-\vec{s_1})+N_2\delta(\vec{r}-\vec{s_2})
+\end{equation}
+where it must hold $0\leq N_1+N_2\leq 1$. The excess free energy functional becomes
+\begin{equation}
+	{\cal F}_{ex}[\rho_2] = \Phi_0(N_1+N_2),
+\end{equation}
+wheres for no overlap
+\begin{equation}
+	{\cal F}_{ex}[\rho_2] = \Phi_0(N_1)+\Phi_0(N_2).
+\end{equation}
+Going to three cavities further complicates and multiplies the number of constellations. It has to be mentioned that not all of these possible constellations cannot be captured within this formalism. These so-called lost cases are therefore out of scope.\\
+Rosenfeld and Tarazona (Ref) proposed the following ansatz for the excess functional
+\begin{equation}
+	{\cal F}_{ex}[\rho] = {\cal F}^{(1)}_{ex}[\rho]+{\cal F}^{(2)}_{ex}[\rho]+\dots, 
+\end{equation}
+where these terms read
+\begin{align}\label{fexExpansion}
+	{\cal F}^{(1)}_{ex}[\rho] &= \int d\mathbf{r}\,\Psi_1[\mathbf{r};[\rho]]\int d\mathbf{r}_1 \rho(\mathbf{r}-\mathbf{r}_1)\delta(R-r_1)\,K_1(\hat{\mathbf{r}}_1),\\\nonumber
+	{\cal F}^{(2)}_{ex}[\rho] &= \int d\mathbf{r}\,\Psi_2[\mathbf{r};[\rho]]\int d\mathbf{r}_1 d\mathbf{r}_2 \rho(\mathbf{r}-\mathbf{r}_1)\delta(R-r_1)\delta(R-r_2)K_2(\hat{\mathbf{r}}_1,\hat{\mathbf{r}}_2)
+\end{align}
+and so forth. They can be evaluated for several 0D-cavity systems, e.g. a single cavity, two cavities etc. For the single cavity example, it can easily be shown that the second and higher contributions of Eq.\eqref{fexExpansion} will be divergent unless the Kernels $K_n(\hat{\mathbf{r}}_1,\dots,\hat{\mathbf{r}})$ vanishes whenever two of its arguments become equal. This is an important stability constraint on the construction of these functionals. As the kernels are taken to be scalars they can only depend on scalar products of their arguments, e.g. $K_2(\hat{\mathbf{r}}_1,\hat{\mathbf{r}}_2)=K_2(\hat{\mathbf{r}}_1\cdot \hat{\mathbf{r}}_2;R).$\\
+For a single cavity one finds using the stability property
+\begin{equation}
+	{\cal F}_{ex}[\rho_1] = {\cal F}^{(1)}_{ex}[\rho_1] = \overline{K}_1\psi_0(N_1)\frac{\partial V_D(R)}{\partial R},
+\end{equation}
+where $V_D(R)$ is the volume of a sphere of radius $R$ in $D$ dimensions. Furthermore, $\psi_1(x)\equiv \psi_0'(x)$ (mention section, where this calculation is done). The exact result is obtained if $\psi_0(x)=\Phi_0(x)$ and $\overline{K}_1V'_D(R)=\overline{K}_1 S_D(R) = 1$, where $S_D(R)$ is the surface area of the sphere.\\
+In a same manner, the calculation for two cavities after identifying $\psi_2(x)=\Phi''_0(x)$ yields
+\begin{align}
+	{\cal F}_{ex}[\rho_2] &= {\cal F}^{(1)}_{ex}[\rho_2]+{\cal F}^{(2)}_{ex}[\rho_2]\\\nonumber
+	&=\Phi_0(N_1+N_2)+(\Delta_2(s_{12})-1)\left[\Phi_0(N_1+N_2)-\Phi_0(N_1)-\Phi_0(N_2)\right], 
+\end{align}
+where $s_{12}$ is the distance between the centers of the two cavities.
+$\Delta_2(s_{12})$ does vanish if the cavities are not intersecting, otherwise in three dimensions it is
+\begin{equation}
+\Delta_2(s_{12}) = 1-\frac{s_{12}}{2R}+\frac{4\pi R^2}{s_{12}}\overline{K}_2\left(1-\frac{s^2_{12}}{2R^2};R\right).	
+\end{equation}
+In order to obtain the exact result one needs $\Delta_2(s_{12})=1$ inferring
+\begin{equation}
+	\overline{K}_2\left(1-\frac{s^2_{12}}{2R^2};R\right)=\frac{1}{4\pi R}\frac{s^2_{12}}{2R^2}
+\end{equation}
+or 
+\begin{equation}
+	\overline{K}_2(x;R) = \frac{1}{4\pi R}(1-x).
+\end{equation} 
+
+Now, we introduce weighted densities $\eta,\,s\,\mathbf{v}$ and $\mathbf{T}$ given as follows
+\begin{align}
+	\eta(\mathbf{r}) &= \int d\mathbf{r}_1\,\theta(R-r_1)\rho(\mathbf{r}-\mathbf{r}_1),\\\nonumber
+	s(\mathbf{r}) &= \int d\mathbf{r}_1\,\delta(R-r_1)\rho(\mathbf{r}-\mathbf{r}_1),\\\nonumber
+	\mathbf{v}(\mathbf{r}) &= \int d\mathbf{r}_1\,\hat{\mathbf{r}}_1\delta(R-r_1)\rho(\mathbf{r}-\mathbf{r}_1)\\\nonumber
+	\mathbf{T}(\mathbf{r}) &= \int d\mathbf{r}_1\,\hat{\mathbf{r}}_1 \hat{\mathbf{r}}_1\delta(R-r_1)\rho(\mathbf{r}-\mathbf{r}_1),
+\end{align}
+i.e. $\eta$ and $s$ are scalars, $\mathbf{v}$ is a vector and $\mathbf{T}$ is a tensor.\\
+Taking the two kernels above, up to two cavities the excess functional becomes
+\begin{equation}
+	{\cal F}^{(1)}_{ex}[\rho_2]+{\cal F}^{(2)}_{ex}[\rho_2] = \int d\mathbf{r}\,\left\{\frac{1}{4\pi R^2}s(\mathbf{r})\log(1-\eta(\mathbf{r}))+\frac{1}{4\pi R}\frac{s^2(\mathbf{r})-\mathbf{v}^2(\mathbf{r})}{1-\eta(\mathbf{r})}\right\},
+\end{equation}
+which are just the first two terms of the Rosenfeld functional in three dimensions. This was possible since we assumed the kernels to be polynomials in $\hat{\mathbf{r}}_i$.\\
+Applying both $K_3$ to be a polynomial and full symmetry between $\hat{\mathbf{r}}_1,\,\hat{\mathbf{r}}_2$ and $\hat{\mathbf{r}}_3$ leads to the third contribution
+\begin{equation}
+	{\cal F}^{(3)}_{ex}[\rho] = \frac{1}{24\pi}\int d\mathbf{r}\,\frac{(A+B)s^3(\mathbf{r})-3As(\mathbf{r})\mathbf{v}^2(\mathbf{r})+3A\mathbf{v}(\mathbf{r})\mathbf{T}(\mathbf{r})\mathbf{v}(\mathbf{r})-3Bs(\mathbf{r})\text{Tr}\,\mathbf{T}^2(\mathbf{r})+(2B-A)\text{Tr}\,\mathbf{T}^3(\mathbf{r})}{(1-\eta(\mathbf{r}))^2}.
+\end{equation}
+The constants $A$ and $B$ cannot be determined within this framework and it is clear that they will have an impact on the stability as well as on the quality of the functional. One can show that for $A,B>0$ the functional is automatically stable, hence referring to "explicitly stable" functionals or for short "esFMT$(A,B)$". Negative coefficients could also lead to stable results but this is far from being obvious.
+\section{Weighted Densities at Spherical Boundary}
+The computation of the weighted densities is independent of the underlying functional but does depend on the geometry of the boundary of the system. Here, we consider a boundary being a sphere of Radius $R_b$.\\
+$n_2(\mathbf{r})$ is defined as 
+\begin{equation}\label{n2}
+	n_2(\mathbf{r}) = \int d\mathbf{r}'\,\rho(\mathbf{r}')\omega_2(\mathbf{r}-\mathbf{r}'),
+\end{equation}
+where the corresponding weight function is given by $\omega_2(\mathbf{r})=\delta(R-|\mathbf{r}|)$. As spherical symmetry is given we can choose $\mathbf{r}=r\hat{e}_z$ and $\mathbf{r}'$ is parametrized as
+\begin{equation}
+	\mathbf{r}' = 
+	\begin{pmatrix}
+	r'\cos\phi'\sin\theta'\\r'\sin\phi'\sin\theta'\\r'\cos\theta'	
+	\end{pmatrix}.
+\end{equation}
+Thus, the distance is
+\begin{equation}
+	|\mathbf{r}-\mathbf{r}'| = \sqrt{r'^2+r^2-2rr'\cos\theta'}
+\end{equation}
+and Eq.\eqref{n2} can be written as
+\begin{equation}\label{n2_1}
+	n_2(\mathbf{r}) = 2\pi\int_0^\infty dr'\,r'\rho(r')\int_{-1}^1d\cos\theta'\,\delta(R-\sqrt{r'^2+r^2-2rr'\cos\theta'}).
+\end{equation}
+The $\theta'$-integration can be performed using the formula
+\begin{equation}
+	\delta(f(x)) = \sum_i \frac{\delta(x-x_i)}{|f'(x_i)|},
+\end{equation}
+where $x_i$ is a root of $f$ and $f'(x_i)\neq 0$ must hold.\\
+The $\delta$-function in Eq.\eqref{n2_1} has the root
+\begin{equation}\label{root_theta}
+	\cos\theta_0 = \frac{r'^2+r^2-R^2}{2rr'},
+\end{equation}
+which also restricts the possible values for $r'$. Since $-1\leq\cos\theta_0\leq 1$, Eq.\eqref{root_theta} is equivalent to
+\begin{equation}
+	|r-R|\leq r'\leq r+R.
+\end{equation}
+Then, we find
+\begin{equation}
+	n_2(\mathbf{r}) = 2\pi\int_{|r-R|}^{r+R}dr'\,r'^2\rho(r')\int_{-1}^1d\cos\theta'\,\frac{R}{rr'}\delta(\cos\theta_0-\cos\theta'),
+\end{equation}
+so the final result becomes
+\begin{equation}
+	n_2(\mathbf{r}) = \frac{2\pi R}{r}\int_{|r-R|}^{r+R}dr'\,r'\rho(r').
+\end{equation}
+Analogously, $n_3(\mathbf{r})$ is defined by
+\begin{equation}
+	n_3(\mathbf{r}) = \int d\mathbf{r}'\,\rho(\mathbf{r}')\omega_3(\mathbf{r}-\mathbf{r}'),
+\end{equation}
+where $\omega(\mathbf{r}) = \theta(R-|\mathbf{r}|)$. Here, one finds 
+\begin{equation}
+	n_3(\mathbf{r}) = \frac{\pi}{r}\int_{|r-R|}^{r+R} dr'\,r'\rho(r')\left(R^2-(r-r')^2\right).
+\end{equation}
+Finally, the vectorial weighted density $\mathbf{n}_2(\mathbf{r})$ can be computed using $\mathbf{n}_2(\mathbf{r})=-\nabla n_3(\mathbf{r})$. We find
+\begin{align}
+	\mathbf{n}_2(\mathbf{r})\cdot \hat{e}_r &= -\partial_r n_3(\mathbf{r})\\\nonumber
+	&= \frac{n_3(\mathbf{r})}{r}-\frac{\pi}{r}\partial_r\int_{|r-R|}^{r+R} dr'r'\rho(r')\left(R^2-(r-r')^2\right)\\\nonumber
+	&= \frac{n_3(\mathbf{r})}{r}+\frac{\pi}{r}\int_{|r-R|}^{r+R} dr'r'\rho(r')2(r-r')\\\nonumber
+	&= \frac{n_3(\mathbf{r})}{r}+\frac{2\pi}{r}\int_{|r-R|}^{r+R} dr'r'\rho(r')(r-r'),\\\nonumber
+\end{align}
+where from the second to the third line we used the fact that the integrand evaluated at the integral boundaries vanishes.\\
+The tensor contribution is done in a similar fashion to $n_2(\mathbf{r})$ with the only difference that the outer product $\hat{\mathbf{r}}_1\hat{\mathbf{r}}_1$ must be considered. Using the parametrization for $\mathbf{r}$ and $\mathbf{r}'$ given above, one finds
+\begin{equation}
+	\mathbf{T} = \int_0^\infty dr'\,r'^2\int_{-1}^1d\cos\theta'\,\frac{\text{diag}(\pi r'^2\sin^2\theta',\,\pi r'^2\sin^2\theta',\,2\pi(r'\cos\theta'-r)^2)}{r^2+r'^2-2rr'\cos\theta'}\rho(r')\delta(R-|\mathbf{r}-\mathbf{r}'|),
+\end{equation}
+where $\mathbf{T}$ becomes diagonal as due to spherical symmetry the $\varphi'$-integrations vanish for non-diagonal entries. Therefore, $\mathbf{T}$ has the form
+\begin{equation}
+	\mathbf{T} = \text{diag}(t_1(r),\,t_1(r),\,t_2(r))
+\end{equation}
+with
+\begin{align}
+	t_1(r) &= \pi\int_0^\infty dr'\,r'^2\int_{-1}^1d\cos\theta'\,\frac{r'^2\sin^2\theta'}{r^2+r'^2-2rr'\cos\theta'}\rho(r')\delta(R-|\mathbf{r}-\mathbf{r}'|)\\\nonumber
+	t_2(r) &= 2\pi\int_0^\infty dr'\,r'^2\int_{-1}^1d\cos\theta'\,\frac{(r'\cos\theta'-r)^2}{r^2+r'^2-2rr'\cos\theta'}\rho(r')\delta(R-|\mathbf{r}-\mathbf{r}'|).
+\end{align}
+After performing the $\cos\theta'$-integration, the final results become
+\begin{align}
+	t_1(r) &= \frac{\pi}{R}\int_{|r-R|}^{r+R} dr'\,r'\rho(r')\left[\frac{r'}{r^2}\left(R^2-(r-r')^2\right)-\frac{1}{4r^3}\left((r-r')^2-R^2\right)^2\right]\\\nonumber
+	t_2(r) &= \frac{2\pi}{R}\int_{|r-R|}^{r+R} dr'\,r'\rho(r')\left[\frac{1}{4r^3}\left((r-r')^2-R^2\right)^2-\frac{1}{r^2}(r-r')\left((r-r')^2-R^2\right)+\frac{1}{r}(r-r')^2\right].
+\end{align}
+One can easily see that $t_1$ and $t_2$ are connected via $n_2$
+\begin{equation}
+	t_1(r) = \frac{1}{2}(n_2(r)-t_2(r)),
+\end{equation}
+i.e. merely $t_2(r)$ has to be computed.\\
+It is worth mentioning that all the integrals appearing in the weighted densities share the form
+\begin{equation}
+	\int_{|r-R|}^{r+R}dr'\,r'\rho(r')f(r-r'),
+\end{equation}
+which can be rewritten by substituting $\hat{r} = r-r'+R$ so the new integration boundaries become 0 and $2R$
+\begin{equation}
+	\int_0^{2R} d\hat{r}\,(\hat{r}-R)\rho(\hat{r}-R)f(r-\hat{r}+R)
+\end{equation}
+
+and setting $z\equiv \hat{r}-R$ leads to
+\begin{equation}
+	\int_0^{2R} d\hat{r}\,z\rho(z)f(r-z).
+\end{equation}
+This representation of the convolution is employed within the Code. 
+
+
+\section{Convolution of Weight-Functions in Real Space}
+
+We want to evaluate convolutions of the weight-functions $\omega_\alpha$ given by
+\begin{equation}
+	\omega_\alpha\otimes\omega_\beta(\mathbf{r}-\mathbf{r}') = \int d\mathbf{r}''\,\omega_\alpha(\mathbf{r}-\mathbf{r}'')\omega_\beta(\mathbf{r'-\mathbf{r}''}).
+\end{equation}
+Without loss of generality we can choose both $\mathbf{r}$ and $\mathbf{r}'$ being aligned on the $z$-axis
+\begin{equation}
+	\mathbf{r} = 0,\quad \mathbf{r}' = d\,\mathbf{e}_z,
+\end{equation}
+so $d$ is the distance of the two particles.\\
+\begin{itemize}
+	\item $\omega_3\otimes\omega_3$\\\\
+		The convolution of $\omega_3$ with itself can be visualized as two spheres of radii $R$ having a distance $d$ to each other. For $d\leq 2R$ there is an intersection of both and hence we expect the convolution to give the volume of it. If $d>2R$ there is no intersection and therefore a vanishing convolution.
+		We have
+		\begin{equation*}
+			\int d\mathbf{r}\,\Theta(R-|\mathbf{r}|)\Theta(R-|\mathbf{r}-\mathbf{d}|),
+		\end{equation*}
+		i.e. we only get a contribution if both step-functions are 1 at the same time. This restricts the integration regions of the volume integral. From the first step-function we get the condition
+		\begin{equation*}
+			r\leq R
+		\end{equation*}
+		and from the second
+		\begin{equation*}
+			r^2+d^2-2rd\cos\theta\leq R^2.
+		\end{equation*}
+		From the latter inequality we obtain a lower boundary for $\cos\theta$
+		\begin{equation*}
+			\cos\theta\geq \frac{r^2+d^2-R^2}{2rd}.
+		\end{equation*} 
+		But, it must also hold 
+		\begin{equation*}
+			\frac{r^2+d^2-R^2}{2rd}\leq 1\quad \leftrightarrow\quad R^2\geq (r-d)^2,
+		\end{equation*}
+		giving in total the boundaries for $r$
+		\begin{equation*}
+			d-R\leq r\leq R.
+		\end{equation*}
+		Therefore, we have
+		\begin{align*}
+			\omega_3\otimes\omega_3 &= 2\pi\int_{d-R}^R dr\,r^2\int_{\frac{r^2+d^2-R^2}{2rd}}^1 d\cos\theta\\\nonumber
+			&= \frac{\pi}{d}\int_{d-R}^R dr\,r(R^2-(r-d)^2)\\\nonumber
+			&= \frac{4\pi}{3}R^3-\pi R^2 d + \frac{\pi}{12}d^3.
+		\end{align*}
+		As we expect, if $d=0$ we obtain the volume of a sphere of radius $R$ and for $d\geq 2R$ (no overlap) 0.
+	\item $\omega_3\otimes\omega_2$\\\\
+		Here we have
+		\begin{equation*}
+			\int d\mathbf{r}\,\Theta(R-|\mathbf{r}|)\delta(R-|\mathbf{r}-\mathbf{d}|),
+		\end{equation*}
+		or being written explicitly
+		\begin{equation*}
+			2\pi\int_0^\infty dr\,r^2\int_{-1}^1 d\cos\theta\,\Theta(R-r)\delta\left(R-(r^2+d^2-2rd\cos\theta)^{1/2}\right).
+		\end{equation*}
+		Again, we have $r\leq R$ and the $\delta$-function can be rewritten as
+		\begin{equation*}
+			\delta\left(R-(r^2+d^2-2rd\cos\theta)^{1/2}\right) = \frac{R}{rd}\delta(\cos\theta_0-\cos\theta),
+		\end{equation*}
+		where
+		\begin{equation*}
+			\cos\theta_0 = \frac{r^2+d^2-R^2}{2rd}\leq 1.
+		\end{equation*}
+		Hence, similarly to $\omega_3\otimes\omega_3$ we have the boundaries $d-R\leq r\leq R$ so it follows
+		\begin{align*}
+			\omega_3\otimes\omega_2 &= 2\pi\int_{d-R}^R dr\,r\int_{-1}^1d\cos\theta\,\frac{R}{d}\delta(\cos\theta_0-\cos\theta)\\\nonumber
+			&= \frac{2\pi R}{d}\int_{d-R}^R dr\,r\\\nonumber
+			&= 2\pi R^2\left(1-\left(\frac{d}{2R}\right)^2\right).	
+		\end{align*}
+		
+		\item $\omega_2\otimes\omega_2$\\\\
+			Here we have to convolute two $\delta$-functions
+			\begin{equation*}
+				\int d\mathbf{r}\,\delta(R-|\mathbf{r}|)\delta(R-|\mathbf{r}-\mathbf{d}|).
+			\end{equation*} 
+			The first $\delta$-function fixes $r=R$, i.e. we can set $r$ to $R$ in the integrand. The second is evaluated similarly to the $\omega_3\otimes\omega_2$ case 
+			\begin{align*}
+				\omega_2\otimes\omega_2 &= 2\pi\int_0^\infty dr\,r^2\int_{-1}^1 d\cos\theta\,\delta(R-r)\delta\left(R-(r^2+d^2-2rd\cos\theta)^{1/2}\right)\\\nonumber
+				&= 2\pi R^2 \frac{R}{Rd}\\\nonumber
+				&= \frac{2\pi R^2}{d}.
+			\end{align*}
+		
+\end{itemize}
+
+\section{Direct Correlation Function}
+
+Within FMT the direct correlation function (DCF) is given by convolutions of the weight-functions $\omega_\alpha$
+
+\begin{align}\label{dcf}
+	c^{(2)}(\mathbf{r}-\mathbf{r}') &\equiv -\frac{\delta^2\beta{\cal F}_{ex}[\rho]}{\delta\rho(\mathbf{r})\delta\rho(\mathbf{r}')}\Bigg|_{bulk}\\\nonumber
+	&=-\sum_{\alpha,\beta}\frac{\partial^2\Phi(\{n_\alpha\})}{\partial n_\alpha\partial n_\beta}\,\omega_\alpha\otimes\omega_\beta(\mathbf{r}-\mathbf{r}'),
+\end{align}
+where we use the notation
+\begin{equation}
+	\omega_\alpha\otimes\omega_\beta(\mathbf{r}-\mathbf{r}') = \int d\mathbf{r}''\,\omega_\alpha(\mathbf{r}-\mathbf{r}'')\omega_\beta(\mathbf{r'-\mathbf{r}''}).
+\end{equation}
+It is easiest to perform these convolutions between the weight-functions in Fourier-space as they become simple products.\\
+The sum in Eq.\eqref{dcf} has many contributions which can be drastically simplified when considering a mono-component system. We consider the following free energy density proposed by Lutsko
+
+\begin{gather}\label{Lutsko-Functional}
+	\Phi(\{n_\alpha\};A,B) = -n_0\log(1-n_3)+\frac{n_1n_2-\mathbf{n}_1\mathbf{n}_2}{1-n_3}+\\\nonumber
+	f(n_3)\left( (A+B)n_2^3-3An_2\mathbf{n}_2^2+3A\mathbf{n}_2\mathbf{T}\mathbf{n}_2-3Bn_2\,\text{tr}(\mathbf{T}^2)+(2B-A)\text{tr}(\mathbf{T}^3)\right),
+\end{gather}
+where $f(n_3)$ can be any differentiable function of $n_3$. In his paper it holds
+\begin{equation}
+	f(n_3) = \frac{1}{24\pi(1-n_3)^2}.
+\end{equation}
+ In contrast to Lutsko's writing, we have already introduced the more common weighed densities $n_\alpha$. We would like to rearrange Eq.\eqref{Lutsko-Functional} such that tensor contributions are separated 
+\begin{gather}
+	\Phi(\{n_\alpha\};A,B) = \Phi_{nt}(\{n_\alpha\};A,B)+\Phi_t(\{n_\alpha\};A,B)\\\nonumber
+	\Phi_{nt}(\{n_\alpha\};A,B)=-n_0\log(1-n_3)+\frac{n_1n_2-\mathbf{n}_1\mathbf{n}_2}{1-n_3}+
+	f(n_3)\left( (A+B)n_2^3-3An_2\mathbf{n}_2^2\right)\\\nonumber
+	\Phi_t(\{n_\alpha\};A,B) = f(n_3)\left(3A\mathbf{n}_2\mathbf{T}\mathbf{n}_2-3Bn_2\,\text{tr}(\mathbf{T}^2)+(2B-A)\text{tr}(\mathbf{T}^3)\right).
+\end{gather} 
+
+Using the short-hand notation 
+
+\begin{equation}
+	\chi^{(ij)} \equiv \frac{\partial^2\Phi}{\partial n_i\partial n_j}
+\end{equation}
+
+the DCF related to $\Phi_{nt}$ can be computed employing the result of \textit{Fundamental measure theory for hard-sphere mixture revisited, R.Roth, R. Evans, A. Lang and G. Kahl, Eq.(40)}
+
+\begin{gather}\label{DCFnt}
+	-c^{(2)}_{nt}(r) = \chi^{(33)}\,\omega_3\otimes\omega_3+2\chi^{(23)}\,\omega_3\otimes\omega_2+2\chi^{(13)}\,\omega_3\otimes\omega_1+\chi^{(22)}\,\omega_2\otimes\omega_2+\chi^{(2v2v)}\,\underline{\omega}_2\otimes\underline{\omega}_2+\\\nonumber
+	2\chi^{(03)}\,\left(\omega_3\otimes\omega_0+\omega_2\otimes\omega_1-\underline{\omega}_2\otimes\underline{\omega}_1\right),
+\end{gather}
+
+where the fact has been used that $\omega_\alpha\otimes\omega_\beta=\omega_\beta\otimes\omega_\alpha$ for mono-component systems. Notice that due to the appearance of $A$ and $B$ in $\Phi_{nt}$ it does not hold $\chi^{(22)}=-\chi^{(2v2v)}$ anymore.\\
+The contribution to the DCF regarding the tensor parts reads as follows
+\begin{gather}\label{DCFt}
+	-c^{(2)}_{t}(r) = \chi^{(33)}\,\omega_3\otimes\omega_3 + \chi^{(2v2v)}\,\underline{\omega}_2\otimes\underline{\omega}_2 + \chi^{(TT)}\,\omega_T\otimes\omega_T + 2\chi^{(23)}\,\omega_3\otimes\omega_2+\\\nonumber
+	 2\chi^{(T3)}\,\omega_T\otimes\omega_3 + 2\chi^{(T2)}\,\omega_T\otimes\omega_2.
+\end{gather}
+To be more precise, the tensor-tensor term in Eq.\eqref{DCFnt} for instance is written as
+\begin{equation}
+	\frac{\partial^2\Phi_{t}}{\partial T_{ij}\partial T_{kl}}\,(\omega_T)_{ij}\otimes(\omega_T)_{kl},
+\end{equation}
+where Einstein's sum convention is used. Hence, the vector- and tensor-like derivatives can be evalutated
+\begin{align}
+	\frac{\partial^2\Phi_{t}}{\partial \underline{n}_{2i}\underline{n}_{2j}} &= 3Af(\eta)\frac{\partial^2}{\partial \underline{n}_{2i}\underline{n}_{2j}}\underline{n}_{2k}T_{kl}\underline{n}_{2l}\\\nonumber
+	&=3Af(\eta)\frac{\partial}{\partial \underline{n}_{2i}}\left(\delta_{jk}T_{kl}\underline{n}_{2l}+\underline{n}_{2k}T_{kl}\delta_{jl}\right)\\\nonumber
+	&= 3Af(\eta)\left(\delta_{jk}\delta_{il} + \delta_{jl}\delta_{ik}\right)T_{kl}\\\nonumber
+	&= 6Af(\eta)T_{ij},
+\end{align}
+which together with $T_{ij} = \frac{\eta}{R}\delta_{ij}$ in the bulk simplifies to
+\begin{equation}
+	\frac{\partial^2\Phi_{t}}{\partial \underline{n}_{2i}\underline{n}_{2j}} = 6Af(\eta)\frac{\eta}{R}\delta_{ij}.
+\end{equation}
+Then, we have 
+\begin{align}
+	\frac{\partial^2\Phi_{t}}{\partial n_2\partial T_{ij}} &= -3Bf(\eta)\frac{\partial^2}{\partial n_2\partial T_{ij}}n_2 T_{kl}T_{lk}\\\nonumber
+	&= -3Bf(\eta)\frac{\partial}{\partial T_{ij}}T_{kl}T_{lk}\\\nonumber
+	&= -3Bf(\eta)\left(\delta_{ik}\delta_{jl}T_{lk}+\delta_{il}\delta_{jk}T_{kl}\right)\\\nonumber
+	&= -6Bf(\eta)T_{ij},
+\end{align}
+thus
+\begin{equation}
+	\frac{\partial^2\Phi_{t}}{\partial n_2\partial T_{ij}} = -6Bf(\eta)\frac{\eta}{R}\delta_{ij}.
+\end{equation}
+Using
+\begin{align}
+	\frac{\partial}{\partial T_{ij}}\,\text{tr}\,\mathbf{T}^3 &= 3\,T_{im}T_{mj}\rightarrow 3\left(\frac{\eta}{R}\right)^2\delta_{ij}\\\nonumber
+	\frac{\partial^2}{\partial T_{ij}\partial T_{kl}}\,\text{tr}\,\mathbf{T}^3 &=3\,\left(\delta_{ik}T_{lj} + T_{ik}\delta_{lj}\right)\rightarrow 6\frac{\eta}{R}\delta_{ik}\delta_{jl}
+\end{align}
+the remaining tensor contributions become
+\begin{align}
+	\frac{\partial^2\Phi_{t}}{\partial n_3\partial T_{ij}} &= -3(A+4B)f'(\eta)\left(\frac{\eta}{R}\right)^2\delta_{ij}\\\nonumber
+	\frac{\partial^2\Phi_{t}}{\partial T_{ij}\partial T_{kl}} &= -6(A+B)f(\eta)\frac{\eta}{R}\delta_{ik}\delta_{jl}.
+\end{align}
+Finally, we have
+\begin{align}
+	\frac{\partial^2\Phi_{t}}{\partial n_3\partial n_3} &= -3(A+7B)f''(\eta)\left(\frac{\eta}{R}\right)^3\\\nonumber
+	\frac{\partial^2\Phi_{t}}{\partial n_3\partial n_2} &= -9Bf'(\eta)\left(\frac{\eta}{R}\right)^2.
+\end{align}
+Collecting all terms and contracting the indices we obtain
+\begin{gather}
+	-c^{(2)}_t(r) = 3(A+7B)f''(\eta)\left(\frac{\eta}{R}\right)^3\,\omega_3\otimes\omega_3 - 6Af(\eta)\frac{\eta}{R}\,\underline{\omega}_2\otimes\underline{\omega}_2 + 6(A+B)f(\eta)\frac{\eta}{R}\,\text{tr}\left(\omega_T\otimes\omega_T\right)+\\\nonumber
+	18Bf'(\eta)\left(\frac{\eta}{R}\right)^2\,\omega_3\otimes\omega_2+12Bf(\eta)\frac{\eta}{R}\,\text{tr}(\omega_T)\otimes\omega_2+6(A+4B)f'(\eta)\left(\frac{\eta}{R}\right)^2\,\text{tr}(\omega_T)\otimes\omega_3.
+\end{gather}
+Therefore, all what remains is to perform the convolutions between the weight-functions. $\omega_T$ has the nice property that when traces are taken the associated convolutions simplify drastically. Making use of the Fourier representation of the weight-functions one can easily show that
+\begin{gather}
+	\text{tr}\,\omega_T = \omega_2\\\nonumber
+	\text{tr}\,\left(\omega_T\otimes\omega_T\right) = \frac{6}{R^2}\omega_3\otimes\omega_3-\frac{4}{R}\omega_3\otimes\omega_2 + \omega_2\otimes\omega_2.
+\end{gather}
+Hence, we conclude that all convolutions that appear, especially those associated to the tensor contributions, can be reduced to the simple ones between $\omega_3$, $\omega_2$ and themselves.
+
+\subsection{Lutsko-DCF}
+
+We set 
+\begin{equation}
+	f(n_3) = \frac{1}{24\pi(1-n_3)^2}
+\end{equation}
+
+so that both parts of the corresponding DCF read ($x=r/\sigma$ and $x\in[0,1]$)
+
+\begin{align}
+	c^{(2)}_{nt}(x) &= \frac{a_{-1}(\eta)}{x} + a_0(\eta) + a_1(\eta)x + a_3(\eta)x^3\\\nonumber
+	c^{(2)}_{t}(x) &= \frac{b_{-1}(\eta)}{x} + b_0(\eta) + b_1(\eta)x + b_3(\eta)x^3,
+\end{align}
+where
+\begin{align}
+	a_{-1}(\eta) &= -\frac{3B\eta}{4(1-\eta)^2}\\\nonumber
+	a_0(\eta) &= -\frac{1+4\eta+(-5+9(A+B))\eta^2}{(1-\eta)^4}\\\nonumber
+	a_1(\eta) &= \frac{3\eta(5+(-4+6B)\eta+(-1+3B)\eta^2+A(-1+8\eta+2\eta^2))}{2(1-\eta)^4}\\\nonumber
+	a_3(\eta) &= -\frac{\eta(1+4\eta+(-5+9(A+B))\eta^2)}{2(1-\eta)^4}
+\end{align}
+and
+
+\begin{align}
+	b_{-1}(\eta) &= \frac{3B\eta}{4(1-\eta)^2}\\\nonumber
+	b_0(\eta) &= \frac{(A+7B)\eta^2}{(1-\eta)^4}\\\nonumber
+	b_1(\eta) &= -\frac{\eta(A(1+2\eta^2)+B(2+10\eta+9\eta^2))}{2(1-\eta)^4}\\\nonumber
+	b_3(\eta) &= \frac{\eta(A(2-4\eta+3\eta^2)+B(2-4\eta+9\eta^2))}{2(1-\eta)^4}.
+\end{align}
+One should notice that $a_{-1} = -b_{-1}$ so in total there is no singular term $1/x$ present. Introducing the Percus-Yevick DCF 
+\begin{equation}
+	c^{(2)}_{\text{PY}}(x) = -\frac{(1+2\eta)^2}{(1-\eta)^4} + \frac{3\eta(2+\eta)^2}{2(1-\eta)^4}x-\frac{\eta(1+2\eta)^2}{2(1-\eta)^4}x^3
+\end{equation}
+we obtain the DCF of Lutsko
+\begin{gather}
+	c^{(2)}_{\text{L}}(x) = c^{(2)}_{nt}(x)+c^{(2)}_{t}(x)\\\nonumber
+	= c^{(2)}_{\text{PY}}(x) + \\\{\frac{\eta}{2(1-\eta)^2}x\left[2(A+B)x^2+3-2B-4A\right]-\\\nonumber
+	(8A+2B-9)\frac{\eta^2}{(1-\eta)^3}(1-x)\left[1+\frac{\eta}{2(1-\eta)}(1-x)(2+x)\right]\}\theta(1-x).
+\end{gather}
+
+\subsection{Lutsko-WB-DCF}
+
+Here, we set
+\begin{equation}
+	f(n_3) = \frac{n_3+(1-n_3)^2\log(1-n_3)}{36\pi n_3^2(1-n_3)^2}
+\end{equation}
+
+and directly give the final result
+\begin{equation}
+	c^{(2)}_{\text{L-WB}}(x) = a_0(\eta) + a_1(\eta)x + a_3(\eta)x^3,
+\end{equation}
+with
+\begin{align}
+	a_0(\eta) &= \frac{-9+\eta(-36+\eta(45+16A(-4+\eta)+4B(-4+\eta)))}{9(1-\eta)^4}\\\nonumber
+	a_1(\eta) &= \frac{1}{18}\left(\frac{24A\log(1-\eta)}{\eta}-3\frac{-9(1-\eta)\eta(5+\eta)+6B\eta(1+(-4+\eta)\eta)+8A(-1+\eta(5+\eta(-13+3\eta)))}{(1-\eta)^4}\right)\\\nonumber
+	a_3(\eta) &= \frac{1}{18}\left(-\frac{36A\log(1-\eta)}{\eta}+\frac{4A(-9+(-4+\eta)\eta(-9+10\eta))+\eta(-9(1-\eta)(1+5\eta)+2B(9+5(-4+\eta)\eta))}{(1-\eta)^4}\right).
+\end{align}
+
+\section{Thermodynamic Quantities}
+
+In the grand-canonical ensemble the defined quantities are $T, V$ and $\mu$. Therefore, we consider a system that is allowed to exchange energy and particles with its environment.\\
+In equilibrium, the grand potential $\Omega$ is minimized which is given by
+\begin{equation}\label{grandPot}
+	\Omega = -pV.
+\end{equation}
+Going to a system with boundaries characterized by its surface $A$ we can extend Eq.\eqref{grandPot} to 
+\begin{equation}
+	\Omega = -pV + \gamma A,
+\end{equation}
+where $\gamma$ is the surface tension. Through Maxwell's relations we can further derive
+\begin{align}
+	\mu &= \left(\frac{\partial F}{\partial N}\right)_{T,V}\\\nonumber
+	p &= -\left(\frac{\partial \Omega}{\partial V}\right)_{\mu,N}.
+\end{align}
+Writing $f=F/V$ as the free energy density and $\rho = N/V$ the particle density it follows
+\begin{align}\label{mu_p}
+	\mu &= \left(\frac{\partial f}{\partial \rho}\right)_{T,V}\\\nonumber
+	p &= -f + \rho \left(\frac{\partial f}{\partial \rho}\right)_{T,V}.
+\end{align}
+Hence, we are able to derive $\mu$ and $p$ for a given free energy density. If we define the packing fraction $\eta = \rho v$, where $v$ is the volume of a given particle species, Eq.\eqref{mu_p} can be rewritten as
+\begin{align}\label{mu_p_eta}
+	\mu &= v \left(\frac{\partial f}{\partial \eta}\right)_{T,V}\\\nonumber
+	p &= -f + \eta \left(\frac{\partial f}{\partial \eta}\right)_{T,V}.
+\end{align}
+The isothermal compressibility is defined as
+\begin{equation}
+	\kappa_T = -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_{T}.
+\end{equation}
+By setting $\chi_T\equiv k_B T\rho \kappa_T$ and using several thermodynamic relations we can also write
+\begin{equation}\label{isoComp}
+	\chi_T = \frac{1}{\eta}\left(\frac{\partial\beta\mu}{\partial\eta}\right)^{-1}_{T,V},
+\end{equation}
+connecting the isothermal susceptibility $\chi_T$ with the change of the chemical potential with respect to the packing fraction.\\
+Another useful quantity is the compressibility factor
+\begin{equation}
+	Z = \frac{\beta p}{\rho},
+\end{equation}
+which in the case of an ideal gas becomes 1. If the system possesses attractive forces $Z<1$ and repulsive $Z>1$. Since for hard spheres the underlying force, i.e. hard wall interaction, is repulsive we expect high compressibility, especially for high $\eta$.\\
+Rosenfeld's functional for instance produces the PY-compressibility factor
+\begin{equation}
+	Z^{\text{PY}} = \frac{1+\eta+\eta^2}{(1-\eta)^3}\geq 1.
+\end{equation}
+In order to derive the bulk expressions, i.e. the thermodynamic quantities for a given excess free energy functional ${\cal F}_{ex}[\rho]$, we must know the bulk-limits of the weighted densities $n_\alpha$. Evaluating the corresponding integrals in the bulk ($\rho(\mathbf{r})\rightarrow\rho$) we find
+\begin{gather}
+	n_0\rightarrow\frac{6\eta}{\pi\sigma^3}, \quad n_1\rightarrow \frac{3\eta}{\pi\sigma^2},\quad n_2\rightarrow \frac{6\eta}{\sigma}\\\nonumber
+	n_3\rightarrow\eta,\quad \mathbf{n}_1\rightarrow 0,\quad \mathbf{n}_2\rightarrow 0,\quad \mathbf{T}\rightarrow \frac{2\eta}{\sigma}\mathbf{1}
+\end{gather}
+with the particle diameter $\sigma$.\\
+Taking Eq.\eqref{mu_p_eta} and applying the chain rule with respect to the weighted densities we have
+\begin{equation}
+	\mu_{ex} = v \sum_\alpha \frac{\partial\Phi_{ex}}{\partial n_\alpha}\frac{\partial n_\alpha}{\partial \eta}
+\end{equation}
+and
+\begin{equation}
+	p = -\Phi_{ex} + \frac{\eta}{v}\mu_{ex}.
+\end{equation}
+Calculating the derivatives and employing the bulk limits the thermodynamic quantities can be obtained.
+\begin{itemize}
+	\item Lutsko's Functional\\
+		The compressibility factor is given by
+		\begin{equation}
+			Z = Z^{\text{PY}} + \left[\frac{2}{3}(4A+B)-3\right]\frac{\eta^2}{(1-\eta)^3}.
+		\end{equation}
+		The excess chemical potential reads
+		\begin{equation}
+			\beta\mu_{ex} = -\log(1-\eta)+\frac{\eta(7-11\eta+4\eta^2)}{(1-\eta)^3}+\frac{4A+B}{3}\,\frac{\eta^2(3-\eta)}{(1-\eta)^3}.
+		\end{equation}
+		Via Eq.\eqref{isoComp} we obtain 
+		\begin{equation}
+			\chi_T = \frac{(1-\eta)^4}{1+4\eta+(2\,(4A+B)-5)\eta^2}.
+		\end{equation}
+	\item Lutsko's WB Functional\\
+		Here the compressibility factor becomes
+		\begin{equation}
+			Z = \frac{1+\eta-2\eta^2}{(1-\eta)^3}+\frac{2}{3}\frac{(4A+B)\eta^2}{(1-\eta)^3}\left(1-\frac{\eta}{3}\right)
+		\end{equation}
+		and the excess chemical potential
+		\begin{gather}
+			\beta\mu_{ex} = -\frac{\eta}{9(1-\eta)^3}\left[2(4A+B)(1-2\eta+\eta^2)-9(7-11\eta+4\eta^2)\right]+
+			\frac{(-9+2(4A+B))}{9}\log(1-\eta).
+		\end{gather} 
+		Finally, we have
+		\begin{equation}
+			\chi_T = \frac{9(1-\eta)^4}{9+36\eta+9(-5+2(4A+B))\eta^2-2(4A+B)\eta^3(4-\eta) )}.
+		\end{equation}
+\end{itemize}
+
+Both $\mu_{ex}$ as well as $\chi_T$ can be obtained also in a different way. Latter can be found in the framework of scaled particle theory (SPT) by creating a cavity of radius $R$ inside a surrounding gas of pressure $p$ and taking the limit $R\rightarrow\infty$. The reversible work for this process can be understood as the energy needed to add a particle of big radius $R$ into the system, i.e. the excess chemical potential $\mu_{ex}$. Then, we get
+\begin{equation}
+	\mu_{ex} = pV + \gamma A + \dots.
+\end{equation}
+Not only do we get a contribution from the well-known term $pV$ but also from corrections due to the finite size of the particle. The next term $\gamma A$ is assigned to the work of maintaining a surface $A$ given the surface tension $\gamma$.\\
+The isothermal susceptibility $\chi_T$ is directly related to the Fourier transform of the structure factor $S(\mathbf{k})$. Latter is connected to the pair correlation function $h(r)$ given by
+\begin{equation}
+	h(r) = g(r)-1,
+\end{equation} 
+where $g(r)=\rho(r)/\rho$ is the radial distribution function which can be interpreted as the probability of finding a particle in the shell $[r,\,r+dr]$. From the definition Eq.\eqref{isoComp} we can derive
+\begin{equation}
+	\chi_T = 1+\rho\int d\mathbf{r}\,h(\mathbf{r}) = \tilde{S}(0).
+\end{equation}
+Therefore, with these relations we have found a sum rule for $\mu_{ex}$ and $\chi_T$, i.e. two independent ways of obtaining the same quantity. This allows us to optimize the underlying functional such that the accordance between these two independent results becomes as near as possible. We optimize thus with respect to $A$ and $B$ that are not specified otherwise.\\
+One simple way of optimization is to scan a certain region in parameter space $(A, B)$ looking for small relative deviations. Since we only have to deal with two parameters this method seems promising. Once having defined the deviation properly one, several or even infinite optimal points should be found.\\
+The analysis so far has shown that contrary to our expectation there is no unique optimal point but rather several. The deviations with respect to $\mu_{ex}$ and $\chi_T$ happen to be aligned to the PY-line ($B = 9/2-4A$) and start shifting from it only for higher packing fractions. This means, that there can be many good points and a final conclusion is feasible when using a high scan resolution which brings longer computation times.\\
+Besides this sum rules an optimization can also be performed by looking at the direct correlation function (DCF) $c^{(2)}(r)$. From molecular dynamics simulations (MD) we have data for DCFs that can be compared with our results. This approach employing the DCFs does also propose optimal points.\\
+Furthermore, using MD we can compare contact values of density profiles for given optimal points. 
+ 
+
+\section{Notizen zur Summenregel der Adsorption}
+
+Die Adsorption $\Gamma$ stellt eine wichtige Groesse zur Ueberpruefung der Schluessigkeit unseres Codes dar. Denn Sie kann ueber zwei Wege berechnet werden, die gaenzlich unabhaengig voneinander sind.\\
+Fuer ein 1d-Problem gilt $A\Gamma = \int_{0}^{\infty} dx (\rho(x) - \rho_b)$, wo A eine Flaeche ist (A=1) und $\rho$ bzw. $\rho_b$ die Dichte und ihren Bulk-Wert darstellen.\\
+Fuer ein Dichteprofil der Form 
+\begin{empheq}[left={\rho(x)=\empheqlbrace}]{alignat*=2}
+	& \rho(x) 	\quad && \text{for}\ x \geq R\\
+	& 0	&& \text{otherwise}
+\end{empheq} 
+folgt 
+\begin{align}
+	A \Gamma &= -\int_0^R dx \rho_b + \int_R^\infty dx (\rho(x) - \rho_b) \\
+	&= -A\rho_b + \int_R^\infty dx (\rho(x)-\rho_b).
+\end{align}
+
+Andererseits laesst sich $A\Gamma$ ueber die thermodynamische Relation $A\Gamma = - \left( \frac{\partial \gamma A}{\partial \mu} \right)_T$ berechnen, wo $\gamma$ die Oberflaechenspannung ist und $\mu$ das totale chemische Potential.\\
+Mithilfe der Kettenregel folgt 
+\begin{align}
+	- \left( \frac{\partial \gamma A}{\partial \mu} \right)_T = - \left( \frac{\partial \gamma A}{\partial \eta} \right)_T \left( \frac{\partial \eta}{\partial \mu} \right)_T = - \left( \frac{\partial \gamma A}{\partial \eta} \right)_T  \left( \frac{\partial \mu}{\partial \eta} \right)_T^{-1}.
+\end{align}
+$\mu(\eta)$ ist analytisch bekannt, sodass ihre Ableitung aus bekannt ist.
+$\gamma(\eta)$ dagegen muss numerisch ermittelt werden:
+\begin{equation}
+	\gamma'(\eta) = \frac{\gamma(\eta + \delta \eta)-\gamma(\eta-\delta \eta)}{2 \delta \eta}.
+\end{equation}
+Fuer das grosskanonische Potential gilt $\Omega = -pV + \gamma A$ und gleichzeitig auch 
+\begin{equation}
+	\Omega[\rho] = \int d\textbf{r} \Phi(2 n_\alpha(\textbf{r})) + \int d\textbf{r} (V_{ext}(\textbf{r}) - \mu(\textbf{r}))\rho(\textbf{r})
+\end{equation}
+mit
+\begin{equation}
+	\Phi(n_\alpha(\textbf{r})) = \rho(\textbf{r}) (\log(\lambda \rho(\textbf{r}))-1) + \Phi_{ex}(n_\alpha)
+\end{equation}
+$\Phi_{ex}$ ist die freie Energiedichte fuer harte Kugeln (generell das exzess-Potential irgendeiner WW).
+\begin{equation}
+	\Phi_{ex} = -n_0 \log(1-n_1)
+\end{equation}
+Dann gilt:
+\begin{equation}
+	\Omega[\rho] = \int d\textbf{r} \rho(\textbf{r}) \left(\log\left(\frac{\rho(\textbf{r})}{\rho_b}\right)-1\right) + \int d\textbf{r} \Phi_{ex} + \int d\textbf{r} \rho(\textbf{r}) (V_{ext}(\textbf{r})-\mu).
+\end{equation}
+Zudem gilt
+\begin{equation}
+	\mu = \mu_{id} + \mu_{ex} = \frac{1}{\beta} \rho_b \log(\lambda \rho_b) + \mu_{ex}(\eta),
+\end{equation}
+womit gilt
+\begin{equation}
+	\beta \Omega = \int d\textbf{r} \beta \rho(\textbf{r}) \left[ \log\left(\frac{\rho(\textbf{r})}{\rho_b}\right)-1-\mu_{ex} + V_{ext}(\textbf{r}) \right] + \int d\textbf{r} \beta \Phi_{ex} = (-pV+\gamma A)\beta
+\end{equation}
+und damit
+\begin{align}
+	\beta \gamma A &= \int d\textbf{r} \beta \Phi_{ex} + \beta p V + \int d\textbf{r} \rho(\textbf{r}) \left[ \beta \left( \log\left(\frac{\rho(\textbf{r})}{\rho_b}\right)-1\right)+\beta V_{ext}-\beta \mu_{ex} \right]\\
+	&= \int_0^\infty dx (\beta \Phi_{ex} + \beta p) + \int_R^\infty dx \rho(x) \left( \log\left(\frac{\rho(\textbf{r})}{\rho_b}\right)-1+V_{ext} -\mu_{ex} \right)\beta
+\end{align}
+Falls 
+\begin{empheq}[left={V_{ext}(x)=\empheqlbrace}]{alignat*=2}
+	& V_{ext}(x) 	\quad && x \in [R,R+\Delta]\\
+	& 0	&& \text{otherwise}
+\end{empheq} 
+bei $x=0$
+\begin{equation}
+	\beta \gamma A = \int_0^\infty dx ( \beta \Phi_{ex} + \beta p) + \int_R^\infty dx \rho(x) \left( \log\left(\frac{\rho(\textbf{r})}{\rho_b}\right)-1 -\mu_{ex} \right) + \int_R^{R+\Delta} dx \rho(x) V_{ext}(x) \beta
+\end{equation}
+bei $x=R$
+\begin{align}
+	\beta \gamma A = \int_0^\infty dx \beta \Phi_{ex} + \int_R^\infty dx \rho(x) \left( \log\left(\frac{\rho(\textbf{r})}{\rho_b}\right)-1 -\beta\mu_{ex} - \beta p \right) + \int_R^{R+\Delta} dx \rho(x) V_{ext}(x) \beta\\
+	A\Gamma = \int_R^\infty dx (\rho(x)-\rho_b) \text{term $-R \rho_b$ not included}
+\end{align}
+Computation of $\beta \mu_{ex}$ via surface tesion. $\beta \gamma$:
+
+\section{Functional Derivatives}
+\subsection{Functional derivatives of Lutsko}
+
+\begin{align}
+	\Phi({n_\alpha}) &= -n_0 \log (1-n_3) + g_1(n_3)(n_1 n_2 - \underline{n}_1 \underline{n}_2) \\
+	& + g_2(n_3) \left[ (A+B) n^3_{2} - 3A n_2 \underline{n}_2^2 + 3A \underline{n}_2^2 t_2 - 3B n_2 (2 t_1^2 + t_2^2)+(2B-A)(2 t_1^3 + t_2^3) \right]
+\end{align}
+
+\begin{equation}
+	\frac{\partial \Phi}{\partial n_0} = - \log(1-n_3)
+\end{equation}
+
+\begin{equation}
+	\frac{\partial \Phi}{\partial n_1} = g_1 (n_3) n_2
+\end{equation}
+
+\begin{align}
+	\frac{\partial \Phi}{\partial n_2} &= g_1 (n_3) n_1 + 3 g_2 (n_3) (A+B) n_2^2 - 3 g_2 (n_3) A \underline{n}_2^2 - 3 g_2 (n_3) B (2 t_1^2 + t_2^2) \\
+	&= g_1 (n_3) n_1 + 3 g_2 (n_3) \left[ (A+B) n_2^2 - A \underline{n}_2^2 - B \underbrace{(2 t_1^2 + t_2^2)}_{tr(T^2)} \right]
+\end{align}
+
+\begin{equation}
+	\frac{\partial \Phi}{\partial \underline{n}_1} = -g_1 (n_3) \underline{n}_2
+\end{equation}
+
+\begin{align}
+	\frac{\partial \Phi}{\partial \underline{n}_2} &= -g_1 (n_3) \underline{n}_1 - g_2 (n_3) 3 A n_2 2 \underline{n}_2 + g_2 (n_3) 3 A 2 \underline{n}_2 t_2 \\
+	&= -g_1 (n_3) \underline{n}_1 + 6 A g_2 (n_3) \underline{n}_2 (t_2 - n_2)
+\end{align}
+
+\begin{align}
+	\frac{\partial \Phi}{\partial n_3} &= \frac{n_0}{1-n_3} + g'_1(n_3) (n_1 n_2 - \underline{n}_1 \underline{n}_2) \\
+	& + g'_2(n_3) \left[ (A+B) n_2^3 - 3A n_2 \underline{n}_2^2 +3A \underline{n}_2^2 t_2 - 3B n_2 \underbrace{(2 t_1^2 + t_2^2)}_{tr(T^2)} + (2B-A) \underbrace{(2 t_1^2 + t_2^2)}_{tr(T^2)} \right]
+\end{align}
+
+\begin{align}
+	\frac{\partial \Phi}{\partial t_1} &= \frac{\partial}{\partial t_1} \left( -6B g_2(n_3) n_2 t_1^2 + 4B g_2(n_3) t_1^3 - 2A g_2(n_3) t_1^3 \right) \\
+	&= -12B g_2(n_3) n_2 t_1 + 12B g_2(n_3) t_1^2 - 6A g_2(n_3) t_1^2 \\
+	&= 6 g_2(n_3) \left[ -2B n_2 t_1 + (2B-A)t_1^2 \right] \\
+	&= -6 g_2(n_3) \left[ A t_1^2 - 2B (-n_2 t_1 + t_1^2) \right] 
+\end{align}
+
+\begin{align}
+	\frac{\partial \Phi}{\partial t_2} &= \frac{\partial}{\partial t_2} \left( 3A g_2(n_3) \underline{n}_2^2 t_2 - 3B g_2(n_3) n_2 t_2^2 + 2B g_2(n_3) t_2^3 - A g_2(n_3) t_2^3 \right) \\
+	&= 3A g_2(n_3) \underline{n}_2^2 - 6B g_2(n_3) t_2^2 - 3A g_2(n_3) t_2^2 ) \\
+	&= 3 g_2(n_3) \left[ A \underline{n}_2^2 - 2B n_2 t_2 + (2B-A) t_2^2 \right] \\
+	&= 3 g_2(n_3) \left[ A(\underline{n}_2^2 -t_2^2) - 2B(n_2 t_2 - t_2^2) \right]
+\end{align}
+
+\begin{align}
+	\left( \frac{\partial \Phi}{\partial t_1} + \frac{\partial \Phi}{\partial t_2} \right) &= -6 g_2(n_3) \left[ A t_1^2 -2B(-n_2 t_1 + t_1^2) \right] + 3 g_2(n_3) \left[ A(\underline{n}_2^2 - t_2^2) - 2B(n_2 t_2 - t_2^2) \right] \\
+	&= g_2(n_3) \left[ -6A t_1^2 -12B(-n_2 t_1 + t_1^2) + 3 A (\underline{n}_2^2 - t_2^2) - 6B(n_2 t_2 - t_2^2) \right] \\
+	&= g_2(n_3) \left[ -3A(-\underline{n}_2^2 + 2 t_1^2 + t_2^2) - 6B (-2 n_2 t_1 +2 t_1^2 + n_2 t_2 - t_2^2) \right] \\
+	&= g_2(n_3) \left[ 3A \underline{n}_2^2 - 3A \underbrace{(2 t_1^2 + t_2^2)}_{tr(T^2)} - 6B n_2 (-t_1 + t_2) - 6B (2 t_1^2 - t_2^2) \right]
+\end{align}
+
+\begin{align}
+	\beta \mu_{ex} &= \frac{4 \pi}{3} R^3 \frac{\partial \Phi}{\partial n_3} + 4 \pi R^2 \frac{\partial \Phi}{\partial n_2} + R \frac{\partial \Phi}{\partial n_1} + \frac{\partial \Phi}{\partial n_0} + \frac{4 R^2}{3}\left( \frac{\partial \Phi}{\partial t_1} + \frac{\partial \Phi}{\partial t_2} \right) \\
+	&= \frac{4 \pi}{3} R^3 g'_2(\eta) \left[ (A+B)(4\pi R^2 \rho_b)^3 - 36 B \pi \rho_b \eta^2 + (2B - A) 3 \frac{\eta^3}{R^3} \right] \\
+	& + 4\pi R^2 g_1(\eta) \rho_b R + 3 g_2(\eta) \left[ A (4\pi R^2 \rho_b)^2 + B \left( (4 \pi R^2 \rho_b)^2 - 3 \frac{\eta^2}{R^2} \right) \right] \\
+	&+ R g_1(\eta) 4 \pi R^2 \rho_b - \log(1-\eta) \\
+	& + \frac{4 R^2}{3} g_2(\eta) \left[ 3A \cdot 0 - 3A \left( 3 \frac{\eta^2}{R^2} \right) - 6B 4\pi R^2 \rho_b \left( - \frac{\eta}{R} + \frac{\eta}{R}\right) - 6B \left( 2 \frac{\eta^2}{R^2} - \frac{\eta^2}{R^2}\right) \right] \\
+	&= g'_2 (\eta) \left[ (A+B) \frac{4^4}{3} \pi^4 R^9 \rho_b^3 - 36 B \frac{4}{3} \pi^2 R^3 \rho_b \eta^2 + (2B-A) 3 \frac{4}{3} \pi \eta^3 \right] \\
+	&+ g_1(\eta) 4 \pi R^3 \rho_b + g_2(\eta) 3 \cdot 4 \pi R^2 \left[ A 4^2 \pi^2 R^4 \rho_b^2 + B\left( 4^2 \pi^2 R^4 \rho_b^2 - 3 \frac{\eta^2}{R^2} \right) \right] \\
+	&+ g_1(\eta) 4 \pi R^3 \rho_b - \log(1-\eta) - g_2(\eta) \left[ A \frac{3}{3} 4 R^2 3 \frac{\eta^2}{R^2} + B 6 \frac{4}{3} R^2 \frac{\eta^2}{R^2} \right] \\
+	&= g'_2(\eta) \left[ A(\frac{256}{3} \pi^4 R^9 \rho_b^3 - 4 \pi \eta^3 ) + B (\frac{256}{3} \pi^4 R^9 \rho_b^3 - 48 \pi^2 R^3 \rho_b \eta^2 + 8 \pi \eta^3 ) \right] \\
+	&+ g_1(\eta) 8 \pi R^3 \rho_b \\
+	&+ g_2(\eta) \left[ A(192\pi^3 R^6 \rho_b^2 - 12 \eta^2) +B (192 \pi^3 R^6 \rho_b^2 - 36 \pi \eta^2 - 8 \eta^2 ) \right] \\
+	&- \log(1-\eta)
+\end{align}
+
+
+\begin{thebibliography}{9}
+\bibitem[Doe]{doe} \emph{First and last \LaTeX{} example.},
+John Doe 50 B.C. 
+\end{thebibliography}
+
+\end{document}s

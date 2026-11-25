@@ -1,0 +1,61 @@
+# ---------------------------------------------------------------------------
+# Local data: kept on disk, not versioned.
+# Each data folder keeps its README.md so the layout is documented on GitHub.
+# ---------------------------------------------------------------------------
+/data/**
+!/data/**/
+!/data/**/README.md
+# paper-related files (manuscripts, figures, figure data) - local only
+/papers/
+
+# private material (referee correspondence, published PDFs, third-party data,
+# unrelated projects, old copies) - never commit
+/private/
+
+# outputs written by the solvers when run inside src/
+/src/**/sp_*_*
+/src/**/hw_*
+/src/**/*_run_eta
+/src/**/data_*
+/src/**/mins.dat
+/src/**/temp
+/src/**/averages
+
+# ---------------------------------------------------------------------------
+# Build products
+# ---------------------------------------------------------------------------
+build/
+*.o
+*.a
+*.so
+*.dSYM/
+src/*/spone_*
+src/*/hwone_*
+src/direct_correlation/corrf
+
+# ---------------------------------------------------------------------------
+# LaTeX by-products (sources + bib are versioned, compiled output is not)
+# ---------------------------------------------------------------------------
+*.aux
+*.log
+*.out
+*.blg
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*Notes.bib
+
+# PostScript renderings (regenerable from xmgrace .par files + data)
+*.ps
+*.eps
+
+# ---------------------------------------------------------------------------
+# Editors / OS / Python
+# ---------------------------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

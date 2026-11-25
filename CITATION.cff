@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "Lutsko functionals for hard spheres: LK, LK-WB and LK-WBII"
+type: software
+license: MIT
+authors:
+  - family-names: Gül
+    given-names: Melih
+    affiliation: "Institute for Theoretical Physics, University of Tübingen"
+  - family-names: Roth
+    given-names: Roland
+    affiliation: "Institute for Theoretical Physics, University of Tübingen"
+  - family-names: Evans
+    given-names: Robert
+    affiliation: "H. H. Wills Physics Laboratory, University of Bristol"
+preferred-citation:
+  type: article
+  title: "Using test particle sum rules to construct accurate functionals in classical density functional theory"
+  authors:
+    - family-names: Gül
+      given-names: Melih
+    - family-names: Roth
+      given-names: Roland
+    - family-names: Evans
+      given-names: Robert
+  journal: "Physical Review E"
+  volume: 110
+  issue: 6
+  start: "064115"
+  year: 2024
+  doi: "10.1103/PhysRevE.110.064115"
+references:
+  - type: article
+    title: "Using test particle sum rules to improve approximations in classical density functional theory: White-Bear and White-Bear mark II versions of the Lutsko functional"
+    authors:
+      - family-names: Gül
+        given-names: Melih
+      - family-names: Roth
+        given-names: Roland
+      - family-names: Evans
+        given-names: Robert
+    journal: "Physical Review E"
+    volume: 113
+    issue: 3
+    start: "034104"
+    year: 2026
+    doi: "10.1103/3vg8-mbf4"
+  - type: article
+    title: "Explicitly stable fundamental-measure-theory models for classical density functional theory"
+    authors:
+      - family-names: Lutsko
+        given-names: James F.
+    journal: "Physical Review E"
+    volume: 102
+    issue: 6
+    start: "062137"
+    year: 2020
+    doi: "10.1103/PhysRevE.102.062137"
